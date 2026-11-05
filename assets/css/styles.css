@@ -431,7 +431,7 @@ ul {
 
   /* Lưới dự án: 3 cột */
   .project-grid {
-    grid-templa70.te-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .hero-avatar img { max-width: 340px; }
