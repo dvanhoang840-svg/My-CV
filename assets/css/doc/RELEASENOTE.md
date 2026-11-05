@@ -6,22 +6,21 @@
 
 ## Chức năng mới
 
-- Xây dựng trang CV/portfolio cá nhân với ảnh đại diện và phần giới thiệu.
-- Thêm thanh điều hướng cố định và hỗ trợ cuộn đến từng khu vực.
-- Hiển thị danh sách sở thích, kỹ năng và các kỷ niệm bằng bố cục chip và lưới.
-- Thêm liên kết Email và Zalo để người xem có thể liên hệ trực tiếp.
-- Cung cấp giao diện responsive trên máy tính, máy tính bảng và điện thoại.
-- Hỗ trợ cuộn mượt, hiệu ứng chuyển động nhẹ và tôn trọng chế độ `prefers-reduced-motion`.
-- Sử dụng thẻ ngữ nghĩa, thuộc tính `aria` và thuộc tính `alt` cho hình ảnh.
+- Xây dựng trang CV/portfolio cá nhân với thông tin giới thiệu và ảnh đại diện.
+- Thêm thanh điều hướng và liên kết cuộn đến từng khu vực.
+- Hiển thị danh sách sở thích, kỹ năng và kỷ niệm.
+- Thêm liên kết Email và Zalo để người xem liên hệ.
+- Bổ sung giao diện responsive cho máy tính, máy tính bảng và điện thoại.
+- Hỗ trợ cuộn mượt, hiệu ứng chuyển động nhẹ và chế độ ưu tiên giảm chuyển động.
 
 ## Lỗi đã sửa
 
-- Hoàn thiện hiển thị bố cục, thanh điều hướng và hình ảnh trên các kích thước màn hình khác nhau.
-- Cải thiện khả năng truy cập và khả năng điều hướng bằng bàn phím.
-- Khắc phục các liên kết liên hệ và điều hướng không hoạt động chính xác.
+- Hoàn thiện bố cục và hiển thị hình ảnh trên các kích thước màn hình khác nhau.
+- Khắc phục các liên kết điều hướng và liên hệ không hoạt động chính xác.
+- Cải thiện khả năng truy cập bằng thẻ ngữ nghĩa, thuộc tính `aria` và văn bản thay thế cho hình ảnh.
 
 ## Hạn chế còn tồn tại
 
-- Nội dung CV cần được chỉnh sửa trực tiếp trong tệp HTML; chưa có giao diện quản trị.
+- Nội dung CV phải được chỉnh sửa trực tiếp trong mã HTML; chưa có giao diện quản trị.
 - Chưa hỗ trợ gửi biểu mẫu liên hệ hoặc lưu dữ liệu người dùng về máy chủ.
-- Trang chưa có chức năng chuyển đổi ngôn ngữ.
+- Trang chưa hỗ trợ chuyển đổi ngôn ngữ.
