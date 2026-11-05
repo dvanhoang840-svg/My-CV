@@ -195,11 +195,13 @@ Chỉnh sửa [`assets/css/styles.css`](./assets/css/styles.css). Các thông s�
 
 ```css
 :root {
-  --color-primary: #2563eb;
-  --color-bg: #32e0ff;
-  --color-text: #1e293b;
+  --color-primary: #4f46e5;
+  --color-accent: #06b6d4;
+  --color-bg: #f8fafc;
+  --color-surface: #ffffff;
+  --color-text: #0f172a;
   --container-max: 1200px;
-  --radius: 12px;
+  --radius: 14px;
 }
 ```
 

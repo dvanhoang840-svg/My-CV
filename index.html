@@ -1,196 +1,695 @@
 <!DOCTYPE html>
-<!-- lang="vi" khai báo ngôn ngữ trang → hỗ trợ screen reader & SEO -->
+<!-- 
+  ==========================================================================
+  BÀI KIỂM TRA A2.1: WEBSITE PORTFOLIO CV RESPONSIVE
+  Sinh viên thực hiện : Đinh Văn Hoàng
+  Chuyên ngành        : Công nghệ Thông tin (Khóa 2024 - 2028)
+  Định hướng          : Frontend Developer
+  Tiêu chuẩn kỹ thuật : HTML5 Ngữ nghĩa (Semantic), CSS3 Mobile-First
+  Tuân thủ tiêu chí   : A2.1.TC1 - A2.1.TC5 & Acceptance Criteria AC-01 -> AC-07
+  ==========================================================================
+-->
 <html lang="vi">
 
 <head>
-  <!-- ========== METADATA BẮT BUỘC ========== -->
+  <!-- Metadata bắt buộc cho chuẩn SEO và hiển thị tiếng Việt UTF-8 -->
   <meta charset="UTF-8" />
-  <!-- viewport: nền tảng của responsive mobile-first, khóa tỉ lệ 1:1 với thiết bị -->
+  <!-- meta viewport: nền tảng của Mobile-First, khóa tỉ lệ 1:1, ngăn vỡ giao diện -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Portfolio CV của Đinh Văn Hoàng – Frontend Developer. Dự án, kỹ năng và thông tin liên hệ." />
+  <meta name="description" content="Portfolio CV cá nhân của Đinh Văn Hoàng – Tân sinh viên CNTT, định hướng Frontend Developer. Giới thiệu bản thân, kỹ năng, dấu ấn kỷ niệm và thông tin liên hệ." />
   <meta name="author" content="Đinh Văn Hoàng" />
-  <title>Đinh Văn Hoàng · Frontend Developer</title>
+  <title>Đinh Văn Hoàng · Tân Sinh viên CNTT · Frontend Developer Portfolio</title>
 
-  <!-- Liên kết tới file CSS tách rời (yêu cầu của bài) -->
+  <!-- Google Fonts: Plus Jakarta Sans – Font chữ hiện đại, thanh lịch, chuẩn quốc tế -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- File CSS độc lập quy định toàn bộ giao diện và responsive (A2.1.TC3 & TC5) -->
   <link rel="stylesheet" href="./assets/css/styles.css" />
 </head>
 
 <body>
 
   <!-- ========================================================== -->
-  <!-- HEADER: nhận diện + điều hướng chính                        -->
+  <!-- 1. HEADER: Nhận diện thương hiệu & Điều hướng chính       -->
+  <!-- Thẻ ngữ nghĩa: <header>, <nav>, <ul>, <li>, <a>            -->
+  <!-- Bố cục: Flexbox cân xứng, hiệu ứng Glassmorphism dính đầu  -->
   <!-- ========================================================== -->
   <header class="site-header">
     <div class="container header-inner">
-      <!-- Thương hiệu cá nhân -->
-      <a class="brand" href="#top" aria-label="Về đầu trang">
-        <span class="brand-mark" aria-hidden="true">A</span>
-        <span class="brand-name">Đinh Văn Hoàng</span>
+      <!-- Thương hiệu / Logo cá nhân -->
+      <a class="brand" href="#top" aria-label="Đinh Văn Hoàng - Về đầu trang">
+        <span class="brand-mark" aria-hidden="true">VH</span>
+        <div class="brand-info">
+          <span class="brand-name">Đinh Văn Hoàng</span>
+          <span class="brand-badge">Tân sinh viên CNTT</span>
+        </div>
       </a>
 
-      <!-- NAV dùng Flexbox (xem styles.css) -->
-      <nav class="main-nav" aria-label="Điều hướng chính">
+      <!-- Thanh điều hướng chính (AC-05: Cuộn mượt đến từng khối) -->
+      <nav class="main-nav" aria-label="Điều hướng chính của trang">
         <ul class="nav-list">
-          <li><a href="#about">Giới thiệu</a></li>
-          <li><a href="#skills">Kỹ năng</a></li>
-          <li><a href="#projects">Dự án</a></li>
-          <li><a href="#contact">Liên hệ</a></li>
+          <li><a href="#about" class="nav-link">Giới thiệu</a></li>
+          <li><a href="#skills" class="nav-link">Kỹ năng</a></li>
+          <li><a href="#projects" class="nav-link">Kỷ niệm</a></li>
+          <li><a href="#contact" class="nav-link nav-link-cta">Liên hệ</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
   <!-- ========================================================== -->
-  <!-- MAIN: toàn bộ nội dung chính của trang                      -->
+  <!-- 2. MAIN: Vùng nội dung chính duy nhất của tài liệu          -->
   <!-- ========================================================== -->
   <main id="top">
-    <!-- ----- SECTION: Giới thiệu / Hero ----- -->
-    <section id="about" class="hero">
+
+    <!-- ----- SECTION 1: Giới thiệu / Hero Section (#about) ----- -->
+    <!-- Thẻ ngữ nghĩa: <section>, <figure>, <img>                 -->
+    <!-- Bố cục: 1 cột (Mobile) -> 2 cột (Tablet & Desktop)        -->
+    <section id="about" class="hero-section">
       <div class="container hero-inner">
-        <div class="hero-text">
-          <p class="eyebrow">Xin chào, tôi là</p>
-          <h1 class="hero-title">Đinh Văn Hoàng cr ntth </h1>
-          <p class="hero-role">Lập trình viên frontend</p>
-          <p class="hero-desc">
-            tôi sẽ cố để trở thành 1 lập trình viên !!
+
+        <!-- Cột thông tin văn bản giới thiệu -->
+        <div class="hero-content">
+          <!-- Huy hiệu trạng thái sinh viên -->
+          <div class="status-pill">
+            <span class="status-indicator">
+              <span class="status-ping"></span>
+              <span class="status-dot"></span>
+            </span>
+            <span>Sinh viên năm nhất · Khóa 2024 - 2028</span>
+          </div>
+
+          <h1 class="hero-title">
+            Xin chào, mình là <br />
+            <span class="gradient-text">Đinh Văn Hoàng</span>
+          </h1>
+
+          <p class="hero-subtitle">
+            <span class="hero-role-tag">Frontend Developer tương lai</span>
+            <span class="hero-divider">•</span>
+            <span>Đam mê giao diện web hiện đại</span>
           </p>
+
+          <p class="hero-desc">
+            Chào mừng bạn đến với Portfolio của mình! Là một tân sinh viên ngành Công nghệ Thông tin, mình luôn tràn đầy hào hứng với thế giới lập trình. Mình đang từng ngày rèn luyện tư duy thuật toán, làm chủ HTML5, CSS3, JavaScript và khám phá hành trình xây dựng những trải nghiệm web thân thiện, hữu ích cho người dùng.
+          </p>
+
+          <!-- Thẻ tóm tắt nhanh (Highlights) dạng Grid 2 cột -->
+          <div class="hero-highlights">
+            <div class="highlight-card">
+              <div class="highlight-icon-box">
+                <!-- SVG Icon Mục tiêu -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <circle cx="12" cy="12" r="6"></circle>
+                  <circle cx="12" cy="12" r="2"></circle>
+                </svg>
+              </div>
+              <div class="highlight-info">
+                <strong>Mục tiêu năm nhất</strong>
+                <p>Nền tảng vững vàng &bull; GPA Giỏi</p>
+              </div>
+            </div>
+
+            <div class="highlight-card">
+              <div class="highlight-icon-box highlight-icon-cyan">
+                <!-- SVG Icon Đam mê lập trình -->
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="16 18 22 12 16 6"></polyline>
+                  <polyline points="8 6 2 12 8 18"></polyline>
+                </svg>
+              </div>
+              <div class="highlight-info">
+                <strong>Đam mê cốt lõi</strong>
+                <p>Web Design &bull; Lập trình giao diện</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Các nút hành động chính (Call To Action) -->
           <div class="hero-actions">
-            <a class="btn btn-primary" href="#projects">Xem dự án</a>
-            <a class="btn btn-outline" href="#contact">Liên hệ tôi</a>
+            <a class="btn btn-primary" href="#projects">
+              <span>Xem dấu ấn &amp; kỷ niệm</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+                <polyline points="12 5 19 12 12 19"></polyline>
+              </svg>
+            </a>
+            <a class="btn btn-outline" href="#contact">
+              <span>Kết nối cùng mình</span>
+            </a>
           </div>
         </div>
 
-        <!-- Ảnh đại diện: dùng placeholder, thay bằng ảnh thật của bạn -->
-        <figure class="hero-avatar">
-          <img
-            src="assets/img/avatar.jpg"
-            alt="Ảnh đại diện của Đinh Văn Hoàng"
-            width="320" height="320" />
-        </figure>
+        <!-- Cột hình ảnh đại diện (Avatar) -->
+        <div class="hero-visual">
+          <figure class="avatar-frame">
+            <div class="avatar-glow"></div>
+            <img
+              src="assets/img/avatar.jpg"
+              alt="Ảnh chân dung sinh viên Đinh Văn Hoàng"
+              class="avatar-image"
+              width="320"
+              height="320" />
+            <figcaption class="avatar-badge">
+              <span class="badge-dot"></span>
+              <span class="badge-title">K24 IT Student</span>
+            </figcaption>
+          </figure>
+        </div>
+
       </div>
     </section>
 
-    <!-- ----- SECTION: Kỹ năng ----- -->
-    <section id="skills" class="section">
+    <!-- ----- SECTION 2: Kỹ năng & Hoạt động (#skills) ----- -->
+    <!-- Thẻ ngữ nghĩa: <section>, <ul>, <li>                  -->
+    <!-- Bố cục: Flexbox wrap với các chip thẻ được phân loại  -->
+    <section id="skills" class="section skills-section">
       <div class="container">
-        <h2 class="section-title">Kỹ năng</h2>
-        <p class="section-sub">Những công nghệ k ngừng phát triển.</p>
+        <!-- Tiêu đề phân đoạn chuẩn ngữ nghĩa -->
+        <div class="section-heading">
+          <span class="section-badge">Năng lực &amp; Học hỏi</span>
+          <h2 class="section-title">Kỹ năng &amp; Hoạt động thường ngày</h2>
+          <p class="section-desc">Những công nghệ mình đang rèn luyện trên giảng đường đại học cùng sở thích rèn luyện thể chất, tinh thần.</p>
+        </div>
 
-        <ul class="skill-grid">
-          <li class="skill-chip">GAME</li>
-          <li class="skill-chip">ĐÁ BÓNG</li>
-          <li class="skill-chip">NGỦ</li>
-          <li class="skill-chip">ĂN</li>
-          <li class="skill-chip">LƯỜI</li>
-          <li class="skill-chip">CHƠI</li>
-        </ul>
+        <div class="skills-container">
+          <!-- Nhóm 1: Công nghệ & Lập trình đang học -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon-box">
+                <!-- SVG Code Icon -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                  <line x1="8" y1="21" x2="16" y2="21"></line>
+                  <line x1="12" y1="17" x2="12" y2="21"></line>
+                </svg>
+              </div>
+              <h3 class="category-name">Công nghệ &amp; Lập trình đang học</h3>
+            </div>
+            <ul class="skills-list">
+              <li class="skill-pill tech-pill">
+                <span class="pill-dot"></span>
+                <span>HTML5 Semantic</span>
+              </li>
+              <li class="skill-pill tech-pill">
+                <span class="pill-dot"></span>
+                <span>CSS3 Modern &amp; Flexbox/Grid</span>
+              </li>
+              <li class="skill-pill tech-pill">
+                <span class="pill-dot"></span>
+                <span>Responsive Web Design (Mobile-First)</span>
+              </li>
+              <li class="skill-pill tech-pill">
+                <span class="pill-dot"></span>
+                <span>JavaScript cơ bản</span>
+              </li>
+              <li class="skill-pill tech-pill">
+                <span class="pill-dot"></span>
+                <span>Quản lý mã nguồn với Git &amp; GitHub</span>
+              </li>
+              <li class="skill-pill tech-pill">
+                <span class="pill-dot"></span>
+                <span>Lập trình cơ sở C / C++</span>
+              </li>
+              <li class="skill-pill tech-pill">
+                <span class="pill-dot"></span>
+                <span>Công cụ: VS Code &amp; Chrome DevTools</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Nhóm 2: Kỹ năng học tập & kỹ năng mềm -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon-box soft-icon-box">
+                <!-- SVG Users Icon -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+              </div>
+              <h3 class="category-name">Kỹ năng học tập &amp; Kỹ năng mềm</h3>
+            </div>
+            <ul class="skills-list">
+              <li class="skill-pill soft-pill">
+                <span class="pill-dot"></span>
+                <span>Tự học &amp; Nghiên cứu tài liệu kỹ thuật</span>
+              </li>
+              <li class="skill-pill soft-pill">
+                <span class="pill-dot"></span>
+                <span>Làm việc nhóm (Teamwork hiệu quả)</span>
+              </li>
+              <li class="skill-pill soft-pill">
+                <span class="pill-dot"></span>
+                <span>Quản lý thời gian học tập &amp; Deadline</span>
+              </li>
+              <li class="skill-pill soft-pill">
+                <span class="pill-dot"></span>
+                <span>Giao tiếp, thuyết trình &amp; Phản biện</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Nhóm 3: Sở thích & Thể thao sinh viên -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <div class="category-icon-box hobby-icon-box">
+                <!-- SVG Activity Icon -->
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polygon points="10 8 16 12 10 16 10 8"></polygon>
+                </svg>
+              </div>
+              <h3 class="category-name">Sở thích &amp; Thể thao sinh viên</h3>
+            </div>
+            <ul class="skills-list">
+              <li class="skill-pill hobby-pill">
+                <span class="pill-dot"></span>
+                <span>Bóng đá giao lưu cùng bạn bè</span>
+              </li>
+              <li class="skill-pill hobby-pill">
+                <span class="pill-dot"></span>
+                <span>E-Sports &amp; Game chiến thuật đồng đội</span>
+              </li>
+              <li class="skill-pill hobby-pill">
+                <span class="pill-dot"></span>
+                <span>Đi phượt &amp; Khám phá cung đường mới</span>
+              </li>
+              <li class="skill-pill hobby-pill">
+                <span class="pill-dot"></span>
+                <span>Nghe nhạc thư giãn &amp; Đọc tin công nghệ</span>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- ----- SECTION: Dự án (danh sách thẻ dùng CSS Grid) ----- -->
-    <section id="projects" class="section section-muted">
+    <!-- ----- SECTION 3: Kỷ niệm & Dấu ấn (#projects) ----- -->
+    <!-- Thẻ ngữ nghĩa: <section>, <article>, <figure>, <img> -->
+    <!-- Bố cục: CSS Grid co giãn 1 cột -> 2 cột -> 3 cột     -->
+    <!-- Đạt chuẩn AC-07 & A2.1.TC3                           -->
+    <section id="projects" class="section projects-section">
       <div class="container">
-        <h2 class="section-title">Kỉ niệm của tôi</h2>
-        <p class="section-sub">Một vài kỉ niệm tôi muốn chia sẻ.</p>
+        <div class="section-heading">
+          <span class="section-badge">Khoảnh khắc thanh xuân</span>
+          <h2 class="section-title">Kỷ niệm &amp; Dấu ấn đáng nhớ</h2>
+          <p class="section-desc">Những cột mốc quý giá từ thời học sinh cấp 3 đến những bước chân đầu tiên tràn đầy nhiệt huyết nơi giảng đường đại học.</p>
+        </div>
 
-        <!-- .project-grid dùng CSS Grid (xem styles.css) -->
+        <!-- Lưới thẻ CSS Grid chuẩn đề tài AC-07 -->
         <div class="project-grid">
 
-          <!-- Mỗi thẻ là một <article> độc lập, có thể đứng riêng -->
-          <article class="card">
-            <img class="card-media"
-              src="./assets/img/ff.jpg"
-              alt="Ảnh minh họa dự án Landing Page" width="600" height="360" />
-            <div class="card-body">
-              <h3 class="card-title">ANH EM FF</h3>
-              <p class="card-desc">
-                giờ giải trí chs game thôi
-              </p>
-              <ul class="tag-list">
-                <li>đá bóng</li>
-                <li>game</li>
-                <li>ngủ</li>
-              </ul>
-              <a class="card-link" href="#">Xem chi tiết →</a>
+          <!-- Card 1: Bế giảng cấp 3 -->
+          <article class="project-card">
+            <div class="card-image-box">
+              <img
+                src="./assets/img/cuoicap.jpg"
+                alt="Ảnh kỷ niệm lễ bế giảng cấp 3 của Đinh Văn Hoàng"
+                class="card-img"
+                width="600"
+                height="375"
+                loading="lazy" />
+              <span class="card-tag">Thanh xuân</span>
             </div>
-          </article>
-          <article class="card">
-            <img class="card-media"
-              src="./assets/img/nhaofc.jpg"
-              alt="Ảnh minh họa dự án Todo App" width="600" height="360" />
-            <div class="card-body">
-              <h3 class="card-title">ANH EM NHÃO </h3>
-              <p class="card-desc">
-                bạn thân của tôi
+            <div class="card-content">
+              <h3 class="card-heading">Kỷ Niệm Bế Giảng Cấp 3</h3>
+              <p class="card-text">
+                Những ngày tháng tươi đẹp nhất của tuổi học trò dưới mái trường THPT. Tạm biệt thầy cô và bạn bè để chuẩn bị cho kỳ thi bước ngoặt vào đại học.
               </p>
-              <ul class="tag-list">
-                <li>trí cốt</li>
-                
+              <ul class="tag-group" aria-label="Nhãn chủ đề">
+                <li>Bế giảng</li>
+                <li>Thanh xuân</li>
+                <li>Áo trắng</li>
               </ul>
-              <a class="card-link" href="#">Xem chi tiết →</a>
+              <a class="card-action-link" href="#modal-cuoicap" aria-label="Xem chi tiết kỷ niệm Bế Giảng Cấp 3">
+                <span>Xem câu chuyện</span>
+                <span class="arrow-icon" aria-hidden="true">&rarr;</span>
+              </a>
             </div>
           </article>
 
-          <article class="card">
-            <img class="card-media"
-              src="./assets/img/cuoicap.jpg"
-              alt="Ảnh minh họa dự án Weather Dashboard" width="600" height="360" />
-            <div class="card-body">
-              <h3 class="card-title">KỈ NIỆM CUỐI CẤP 3</h3>
-              <p class="card-desc">
-                tuyệt vờiiiiiii
+          <!-- Card 2: Bạn thân hội nhão -->
+          <article class="project-card">
+            <div class="card-image-box">
+              <img
+                src="./assets/img/nhaofc.jpg"
+                alt="Ảnh chụp cùng hội bạn thân chí cốt thời học sinh"
+                class="card-img"
+                width="600"
+                height="375"
+                loading="lazy" />
+              <span class="card-tag">Tình bạn</span>
+            </div>
+            <div class="card-content">
+              <h3 class="card-heading">Hội Bạn Thân Cùng Tiến</h3>
+              <p class="card-text">
+                Những người bạn chí cốt luôn đồng hành cùng nhau từ thời áo trắng. Cùng học tập, chia sẻ những ước mơ lớn và tiếp thêm động lực vượt qua thử thách.
               </p>
-              <ul class="tag-list">
-                <li>cr</li>
-                <li>Hag</li>
+              <ul class="tag-group" aria-label="Nhãn chủ đề">
+                <li>Tri kỷ</li>
+                <li>Đồng hành</li>
+                <li>Bạn thân</li>
               </ul>
-              <a class="card-link" href="#">Xem chi tiết →</a>
+              <a class="card-action-link" href="#modal-nhaofc" aria-label="Xem chi tiết kỷ niệm Hội Bạn Thân">
+                <span>Xem câu chuyện</span>
+                <span class="arrow-icon" aria-hidden="true">&rarr;</span>
+              </a>
             </div>
           </article>
 
-          <article class="card">
-            <img class="card-media"
-              src="./assets/img/banthan.jpg"
-              alt="Ảnh minh họa dự án Blog cá nhân" width="600" height="360" />
-            <div class="card-body">
-              <h3 class="card-title">Đi phượt cùng b</h3>
-              <p class="card-desc">
-                rất vui và đáng nhớ
+          <!-- Card 3: Chuyến đi phượt -->
+          <article class="project-card">
+            <div class="card-image-box">
+              <img
+                src="./assets/img/banthan.jpg"
+                alt="Ảnh chuyến đi phượt trải nghiệm thiên nhiên cùng bạn thân"
+                class="card-img"
+                width="600"
+                height="375"
+                loading="lazy" />
+              <span class="card-tag">Trải nghiệm</span>
+            </div>
+            <div class="card-content">
+              <h3 class="card-heading">Chuyến Phượt Đáng Nhớ</h3>
+              <p class="card-text">
+                Hành trình cùng bạn bè vi vu trên những cung đường gió lộng. Hít thở không khí trong lành của núi rừng, xua tan mọi âu lo sau những kỳ thi cam go.
               </p>
-              <ul class="tag-list">
-                <li>Qg</li>
-                <li>ừ</li>
+              <ul class="tag-group" aria-label="Nhãn chủ đề">
+                <li>Phượt thủ</li>
+                <li>Khám phá</li>
+                <li>Kỷ niệm đẹp</li>
               </ul>
-              <a class="card-link" href="#">Xem chi tiết →</a>
+              <a class="card-action-link" href="#modal-banthan" aria-label="Xem chi tiết kỷ niệm Chuyến Phượt Đáng Nhớ">
+                <span>Xem câu chuyện</span>
+                <span class="arrow-icon" aria-hidden="true">&rarr;</span>
+              </a>
             </div>
           </article>
 
-        </div><!-- /.project-grid -->
+          <!-- Card 4: Game & E-Sports -->
+          <article class="project-card">
+            <div class="card-image-box">
+              <img
+                src="./assets/img/ff.jpg"
+                alt="Ảnh giao lưu thể thao điện tử và giải trí cùng đồng đội"
+                class="card-img"
+                width="600"
+                height="375"
+                loading="lazy" />
+              <span class="card-tag">Giải trí</span>
+            </div>
+            <div class="card-content">
+              <h3 class="card-heading">Giao Lưu E-Sports &amp; Bạn Bè</h3>
+              <p class="card-text">
+                Những buổi tối giải trí ngập tràn tiếng cười cùng anh em sau giờ học tập. Nơi rèn luyện khả năng phối hợp đồng đội ăn ý, tư duy chiến thuật và phản xạ nhanh.
+              </p>
+              <ul class="tag-group" aria-label="Nhãn chủ đề">
+                <li>E-Sports</li>
+                <li>Teamwork</li>
+                <li>Giải tỏa áp lực</li>
+              </ul>
+              <a class="card-action-link" href="#modal-ff" aria-label="Xem chi tiết kỷ niệm Giao Lưu E-Sports">
+                <span>Xem câu chuyện</span>
+                <span class="arrow-icon" aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 5: Chân dung tân sinh viên -->
+          <article class="project-card">
+            <div class="card-image-box">
+              <img
+                src="./assets/img/hoann.jpg"
+                alt="Ảnh chân dung đời thường của tân sinh viên Đinh Văn Hoàng"
+                class="card-img"
+                width="600"
+                height="375"
+                loading="lazy" />
+              <span class="card-tag">Khởi đầu mới</span>
+            </div>
+            <div class="card-content">
+              <h3 class="card-heading">Tân Sinh Viên Đầy Năng Lượng</h3>
+              <p class="card-text">
+                Một khoảnh khắc đời thường giản dị nhưng mang trọn vẹn năng lượng tích cực, sẵn sàng cho chặng đường đại học 4 năm tươi đẹp với ngành Công nghệ Thông tin.
+              </p>
+              <ul class="tag-group" aria-label="Nhãn chủ đề">
+                <li>Tân sinh viên</li>
+                <li>Tích cực</li>
+                <li>Đời thường</li>
+              </ul>
+              <a class="card-action-link" href="#modal-hoann" aria-label="Xem chi tiết câu chuyện Tân Sinh Viên Đầy Năng Lượng">
+                <span>Xem câu chuyện</span>
+                <span class="arrow-icon" aria-hidden="true">&rarr;</span>
+              </a>
+            </div>
+          </article>
+
+        </div>
       </div>
     </section>
 
-    <!-- ----- SECTION: Liên hệ ----- -->
-    <section id="contact" class="section">
-      <div class="container contact-inner">
-        <h2 class="section-title">IB</h2>
-        <p class="section-sub">Liên hệ với của tôi!!!!!!!</p>
+    <!-- ----- SECTION 4: Liên hệ & Giao lưu (#contact) ----- -->
+    <!-- Thẻ ngữ nghĩa: <section>, <form>, <input>, <textarea>  -->
+    <!-- Bố cục: 2 cột cân xứng (Desktop) và 1 cột (Mobile)    -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-badge">Kết nối cùng mình</span>
+          <h2 class="section-title">Liên hệ &amp; Giao lưu học tập</h2>
+          <p class="section-desc">Đừng ngần ngại liên hệ với mình để cùng học tập, trao đổi kinh nghiệm hoặc lập nhóm làm đồ án nhé!</p>
+        </div>
 
-        <ul class="contact-list">
-          <li><span class="contact-label">Email</span> <a href="mailto:dvanhoang304@gmail.com">dvanhoang304@gmail.com</a></li>
-          <li><span class="contact-label">Zalo</span> <a href="https://zalo.me/0983989930">0983989930</a></li>
-        </ul>
+        <div class="contact-layout">
+          <!-- Cột 1: Danh thiếp thông tin liên lạc trực tiếp -->
+          <div class="contact-info-card">
+            <h3 class="contact-card-title">Thông tin kết nối</h3>
+            <p class="contact-card-subtitle">
+              Mình luôn sẵn lòng kết bạn mới và chào đón mọi cơ hội trao đổi kiến thức cùng các bạn sinh viên và thầy cô.
+            </p>
+
+            <ul class="contact-details-list">
+              <!-- Mục Email -->
+              <li class="contact-detail-item">
+                <div class="detail-icon-box">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </div>
+                <div class="detail-text">
+                  <span class="detail-label">Email học tập</span>
+                  <a href="mailto:dvanhoang304@gmail.com" class="detail-link">dvanhoang304@gmail.com</a>
+                </div>
+              </li>
+
+              <!-- Mục Zalo -->
+              <li class="contact-detail-item">
+                <div class="detail-icon-box detail-icon-cyan">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                  </svg>
+                </div>
+                <div class="detail-text">
+                  <span class="detail-label">Zalo kết nối nhanh</span>
+                  <a href="https://zalo.me/0983989930" target="_blank" rel="noopener noreferrer" class="detail-link">0983 989 930</a>
+                </div>
+              </li>
+
+              <!-- Mục Vị trí -->
+              <li class="contact-detail-item">
+                <div class="detail-icon-box">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                    <circle cx="12" cy="10" r="3"></circle>
+                  </svg>
+                </div>
+                <div class="detail-text">
+                  <span class="detail-label">Khu vực sinh sống</span>
+                  <span class="detail-value">Hà Nội, Việt Nam</span>
+                </div>
+              </li>
+
+              <!-- Mục Trạng thái -->
+              <li class="contact-detail-item">
+                <div class="detail-icon-box detail-icon-green">
+                  <span class="online-indicator"></span>
+                </div>
+                <div class="detail-text">
+                  <span class="detail-label">Trạng thái hiện tại</span>
+                  <span class="detail-value">Đang tích cực học tập &bull; Sẵn sàng ghép nhóm bài tập</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Cột 2: Form gửi lời nhắn thân thiện -->
+          <div class="contact-form-card">
+            <h3 class="contact-card-title">Gửi lời nhắn cho mình</h3>
+            <p class="contact-card-subtitle">
+              Bạn có đóng góp ý kiến về giao diện website hoặc muốn trao đổi bài tập? Hãy để lại tin nhắn nhé!
+            </p>
+
+            <form class="message-form" action="mailto:dvanhoang304@gmail.com" method="post" enctype="text/plain">
+              <div class="input-field">
+                <label for="user-name" class="field-label">Họ và tên của bạn</label>
+                <input
+                  type="text"
+                  id="user-name"
+                  name="name"
+                  class="field-input"
+                  placeholder="Ví dụ: Nguyễn Văn A"
+                  required />
+              </div>
+
+              <div class="input-field">
+                <label for="user-email" class="field-label">Địa chỉ Email</label>
+                <input
+                  type="email"
+                  id="user-email"
+                  name="email"
+                  class="field-input"
+                  placeholder="name@example.com"
+                  required />
+              </div>
+
+              <div class="input-field">
+                <label for="user-message" class="field-label">Nội dung lời nhắn</label>
+                <textarea
+                  id="user-message"
+                  name="message"
+                  class="field-textarea"
+                  rows="4"
+                  placeholder="Chào Hoàng, mình muốn kết nối cùng bạn để..."
+                  required></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-submit">
+                <span>Gửi lời nhắn ngay</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="22" y1="2" x2="11" y2="13"></line>
+                  <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                </svg>
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </section>
+
+    <!-- ========================================================== -->
+    <!-- 5. MODAL POPUP PURE CSS (:TARGET)                          -->
+    <!-- Hoàn toàn 100% không dùng JavaScript theo đúng yêu cầu     -->
+    <!-- Đạt chuẩn A11y, hiển thị câu chuyện chi tiết và đóng về    -->
+    <!-- ========================================================== -->
+
+    <!-- Modal 1: Kỷ niệm bế giảng cấp 3 -->
+    <div id="modal-cuoicap" class="story-modal-overlay" aria-label="Chi tiết kỷ niệm bế giảng cấp 3">
+      <div class="story-modal-box">
+        <a href="#projects" class="modal-close-btn" aria-label="Đóng cửa sổ">&times;</a>
+        <img src="./assets/img/cuoicap.jpg" alt="Ảnh chi tiết kỷ niệm bế giảng cấp 3" class="modal-cover-img" />
+        <div class="modal-inner-content">
+          <span class="card-tag">Thanh xuân rực rỡ</span>
+          <h3 class="modal-heading">Kỷ Niệm Ngày Lễ Bế Giảng Cấp 3</h3>
+          <p class="modal-paragraph">
+            Bức ảnh lưu lại ngày bế giảng cuối cùng của thời học sinh trung học phổ thông. Đó là thời khắc thiêng liêng vừa bồi hồi chia tay bạn bè thầy cô, vừa háo hức chuẩn bị cho kỳ thi tốt nghiệp và cánh cửa đại học. Những kỷ niệm này sẽ luôn là hành trang quý giá theo mình suốt 4 năm đại học sắp tới!
+          </p>
+          <a href="#projects" class="btn btn-primary modal-action-btn">Quay lại danh sách kỷ niệm</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 2: Hội bạn thân -->
+    <div id="modal-nhaofc" class="story-modal-overlay" aria-label="Chi tiết kỷ niệm bạn thân">
+      <div class="story-modal-box">
+        <a href="#projects" class="modal-close-btn" aria-label="Đóng cửa sổ">&times;</a>
+        <img src="./assets/img/nhaofc.jpg" alt="Ảnh chi tiết hội bạn thân" class="modal-cover-img" />
+        <div class="modal-inner-content">
+          <span class="card-tag">Tình bạn chí cốt</span>
+          <h3 class="modal-heading">Hội Bạn Thân Cùng Nhau Nỗ Lực</h3>
+          <p class="modal-paragraph">
+            Nhóm bạn thân thiết gắn bó từ những năm cấp 3. Dù mỗi người có thể học những ngành nghề khác nhau, nhưng tình bạn và sự gắn kết luôn nguyên vẹn. Chúng mình luôn gặp nhau mỗi dịp cuối tuần để sẻ chia chuyện trường lớp và những dự định tương lai.
+          </p>
+          <a href="#projects" class="btn btn-primary modal-action-btn">Quay lại danh sách kỷ niệm</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 3: Chuyến phượt -->
+    <div id="modal-banthan" class="story-modal-overlay" aria-label="Chi tiết chuyến đi phượt">
+      <div class="story-modal-box">
+        <a href="#projects" class="modal-close-btn" aria-label="Đóng cửa sổ">&times;</a>
+        <img src="./assets/img/banthan.jpg" alt="Ảnh chi tiết chuyến đi phượt" class="modal-cover-img" />
+        <div class="modal-inner-content">
+          <span class="card-tag">Trải nghiệm tuổi trẻ</span>
+          <h3 class="modal-heading">Chuyến Phượt Cùng Bạn Thân</h3>
+          <p class="modal-paragraph">
+            Chuyến đi phượt bằng xe máy sau kỳ thi tốt nghiệp đầy căng thẳng. Tận hưởng cung đường gió lộng, ngắm nhìn phong cảnh thiên nhiên hùng vĩ và lưu lại những khoảnh khắc thanh xuân không thể nào quên.
+          </p>
+          <a href="#projects" class="btn btn-primary modal-action-btn">Quay lại danh sách kỷ niệm</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 4: Giải trí E-Sports -->
+    <div id="modal-ff" class="story-modal-overlay" aria-label="Chi tiết giải trí E-Sports">
+      <div class="story-modal-box">
+        <a href="#projects" class="modal-close-btn" aria-label="Đóng cửa sổ">&times;</a>
+        <img src="./assets/img/ff.jpg" alt="Ảnh chi tiết giải trí E-Sports" class="modal-cover-img" />
+        <div class="modal-inner-content">
+          <span class="card-tag">Giải trí &amp; Tinh thần đồng đội</span>
+          <h3 class="modal-heading">Những Trận Game E-Sports Cùng Đồng Đội</h3>
+          <p class="modal-paragraph">
+            Sau những giờ học toán cao cấp và thuật ngữ lập trình căng não, một vài trận game cùng anh em bạn bè là cách giải tỏa áp lực tốt nhất. Trò chơi cũng giúp mình hiểu hơn về sự ăn ý, tinh thần trách nhiệm và phân chia vai trò trong một tập thể.
+          </p>
+          <a href="#projects" class="btn btn-primary modal-action-btn">Quay lại danh sách kỷ niệm</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 5: Tân sinh viên nhiệt huyết -->
+    <div id="modal-hoann" class="story-modal-overlay" aria-label="Chi tiết chân dung tân sinh viên">
+      <div class="story-modal-box">
+        <a href="#projects" class="modal-close-btn" aria-label="Đóng cửa sổ">&times;</a>
+        <img src="./assets/img/hoann.jpg" alt="Ảnh chi tiết chân dung tân sinh viên" class="modal-cover-img" />
+        <div class="modal-inner-content">
+          <span class="card-tag">Tân sinh viên nhiệt huyết</span>
+          <h3 class="modal-heading">Hành Trình Khám Phá Công Nghệ Mới</h3>
+          <p class="modal-paragraph">
+            Bức ảnh ghi lại khoảnh khắc đời thường của mình khi chính thức trở thành sinh viên năm nhất. Tràn đầy hào hứng với giảng đường đại học, thầy cô, bạn bè mới và quyết tâm xây dựng tương lai vững chắc với ngành Công nghệ Thông tin.
+          </p>
+          <a href="#projects" class="btn btn-primary modal-action-btn">Quay lại danh sách kỷ niệm</a>
+        </div>
+      </div>
+    </div>
 
   </main>
 
   <!-- ========================================================== -->
-  <!-- FOOTER                                                      -->
+  <!-- 6. FOOTER: Chân trang bản quyền & Nút cuộn lên đầu        -->
   <!-- ========================================================== -->
   <footer class="site-footer">
-    <div class="container footer-inner">
-      <p>© 2026 Đinh Văn Hoàng. Thiết kế &amp; xây dựng bằng HTML5 + CSS3.</p>
-      <a href="#top" class="to-top">↑ Lên đầu trang</a>
+    <div class="container footer-layout">
+      <div class="footer-identity">
+        <span class="footer-mark" aria-hidden="true">VH</span>
+        <div class="footer-meta">
+          <p class="footer-copy">&copy; 2026 Đinh Văn Hoàng &bull; Tân sinh viên CNTT K24.</p>
+          <p class="footer-motto">&ldquo;Học hết sức, sáng tạo hết mình &ndash; Vững bước trên con đường công nghệ!&rdquo;</p>
+        </div>
+      </div>
+
+      <a href="#top" class="back-to-top" aria-label="Cuộn nhanh lên đầu trang">
+        <span>Lên đầu trang</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <line x1="12" y1="19" x2="12" y2="5"></line>
+          <polyline points="5 12 12 5 19 12"></polyline>
+        </svg>
+      </a>
     </div>
   </footer>
 

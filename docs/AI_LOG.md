@@ -70,3 +70,21 @@ Mức độ thay đổi lớn bao gồm: thêm/xóa chức năng, sửa cấu tr
 - **Tác động:** Tiêu chí responsive có minh chứng trực quan thay vì chỉ đánh giá dựa trên mã nguồn CSS.
 - **Kiểm chứng:** Kiểm tra trực quan ảnh ở viewport 390x844, 768x1024 và 1440x900; xác nhận bố cục không có cuộn ngang và chuyển số cột theo breakpoint.
 - **Trạng thái:** Hoàn thành.
+
+### 2026-11-05 19:36 - Nâng cấp trải nghiệm tương tác (Hover điện ảnh, Interactive Skill Cards, Modal kính mờ & Form Glow Ring)
+
+- **Người yêu cầu:** Đinh Văn Hoàng (Chủ sở hữu dự án).
+- **AI hỗ trợ:** Gemini 3.8 Flash (High) trong Antigravity.
+- **Phạm vi:** `index.html`, `assets/css/styles.css`, tài liệu dự án.
+- **Thay đổi:**
+  - **Hiệu ứng hover điện ảnh:** Nâng cấp các thẻ kỷ niệm với hiệu ứng phóng to ảnh mượt mà (`scale(1.08)` với cubic-bezier), lớp phủ gradient huyền ảo tăng chiều sâu (`.card-media-overlay`), và nhãn danh mục phong cách frosted glass mờ kính sang trọng (`backdrop-filter: blur(12px)`).
+  - **Interactive Skill Cards:** Thiết kế lại toàn diện khu vực Kỹ năng thành các card tương tác thông minh. Phân tách rõ nhóm Frontend cốt lõi với thanh đo trực quan (meter progress bars) và huy hiệu level ấn tượng (Vững chắc, Thành thạo, Đang nâng cao...). Các nhóm kỹ năng mềm và sở thích được bố trí dưới dạng thẻ tương tác thanh thoát.
+  - **Modal Popup cao cấp:** Nâng cấp cửa sổ popup chi tiết với góc bo hiện đại (`border-radius: 24px`), nút đóng kính mờ frosted glass xoay 90 độ khi hover, lớp backdrop click-to-close thuần CSS và bố cục nội dung thoáng đãng, chỉn chu.
+  - **Form liên hệ thông minh:** Bổ sung icon SVG tinh tế bên trong từng trường input (Họ tên, Email, Tin nhắn) kèm hiệu ứng glow ring phát sáng màu Indigo khi click/focus.
+  - **Nguyên tắc kỹ thuật:** Bảo toàn 100% câu chữ, thông tin cá nhân của bạn Đinh Văn Hoàng; duy trì giải pháp 100% HTML/CSS thuần (Modal `:target`), bổ sung micro-interaction nhẹ nhàng hỗ trợ phím Esc.
+- **Tác động:** Giao diện portfolio đạt chuẩn chuyên nghiệp, hiện đại, tăng tính tương tác thị giác mà vẫn đảm bảo tính tối giản, không phụ thuộc thư viện ngoài.
+- **Kiểm chứng:**
+  - Script kiểm tra cú pháp HTML xác nhận 100% thẻ mở/đóng khớp hoàn hảo (178 div, 30 link, 23 list item...).
+  - Kiểm tra toàn bộ anchor link nội bộ `#modal-*` và `#projects` khớp 100%.
+  - Kiểm tra toàn bộ đường dẫn ảnh tồn tại trên ổ đĩa.
+- **Trạng thái:** Hoàn thành.
